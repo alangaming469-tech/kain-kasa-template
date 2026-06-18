@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card - Kain & Kasa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'scale-in': 'scaleIn 0.3s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    .image-container {
+      overflow: hidden;
+    }
+    .image-container img {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .product-card:hover .image-container img {
+      transform: scale(1.1);
+    }
+    .add-to-cart-btn {
+      transition: all 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+    .add-to-cart-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen p-8">
+  
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-12 gradient-text">
+      Featured Products
+    </h1>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <!-- PRODUCT CARD 1: In Stock -->
+      <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" style="animation-delay: 0ms;">
+        <!-- Image Container -->
+        <div class="image-container relative h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop" 
+            alt="Kaos Oversized Street"
+            class="w-full h-full object-cover"
+          />
+          <!-- Featured Badge -->
+          <div class="absolute top-3 left-3">
+            <span class="bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+              ⭐ Featured
+            </span>
+          </div>
+          <!-- Quick Actions (Show on Hover) -->
+          <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </button>
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="p-5">
+          <!-- Category -->
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-wider">
+            Clothing
+          </span>
+
+          <!-- Product Name -->
+          <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2 line-clamp-1">
+            Kaos Oversized Street
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+            Kaos oversized dengan desain streetwear modern. Bahan premium cotton 24s.
+          </p>
+
+          <!-- Price Section -->
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-xl font-bold gradient-text">Rp 149.000</span>
+            </div>
+            <!-- Stock Indicator -->
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span class="text-xs text-gray-600 font-medium">48 left</span>
+            </div>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button 
+            onclick="addToCart('550e8400-e29b-41d4-a716-446655440001', 'Kaos Oversized Street', 149000)"
+            class="add-to-cart-btn w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-indigo-700 hover:to-purple-700"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- PRODUCT CARD 2: With Discount -->
+      <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" style="animation-delay: 100ms;">
+        <div class="image-container relative h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&h=600&fit=crop" 
+            alt="Hoodie Local Pride"
+            class="w-full h-full object-cover"
+          />
+          <!-- Discount Badge -->
+          <div class="absolute top-3 left-3 flex gap-2">
+            <span class="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+              -8% OFF
+            </span>
+          </div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </button>
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-wider">
+            Clothing
+          </span>
+
+          <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2 line-clamp-1">
+            Hoodie Local Pride
+          </h3>
+
+          <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+            Hoodie hangat dengan desain local pride. Perfect untuk cuaca Indonesia.
+          </p>
+
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xl font-bold gradient-text">Rp 229.000</span>
+                <span class="text-sm text-gray-400 line-through">Rp 249.000</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span class="text-xs text-gray-600 font-medium">28 left</span>
+            </div>
+          </div>
+
+          <button 
+            onclick="addToCart('550e8400-e29b-41d4-a716-446655440002', 'Hoodie Local Pride', 229000)"
+            class="add-to-cart-btn w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-indigo-700 hover:to-purple-700"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- PRODUCT CARD 3: Low Stock -->
+      <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" style="animation-delay: 200ms;">
+        <div class="image-container relative h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&h=600&fit=crop" 
+            alt="Jacket Bomber Indo"
+            class="w-full h-full object-cover"
+          />
+          <!-- Low Stock Badge -->
+          <div class="absolute top-3 left-3">
+            <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+              🔥 Low Stock!
+            </span>
+          </div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </button>
+            <button class="bg-white text-gray-800 p-3 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-110">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-wider">
+            Outerwear
+          </span>
+
+          <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2 line-clamp-1">
+            Jacket Bomber Indo
+          </h3>
+
+          <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+            Jacket bomber stylish dengan sentuhan lokal. Tahan air dan angin.
+          </p>
+
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-xl font-bold gradient-text">Rp 299.000</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+              <span class="text-xs text-orange-600 font-bold">Only 5 left!</span>
+            </div>
+          </div>
+
+          <button 
+            onclick="addToCart('550e8400-e29b-41d4-a716-446655440003', 'Jacket Bomber Indo', 299000)"
+            class="add-to-cart-btn w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-indigo-700 hover:to-purple-700"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- PRODUCT CARD 4: Out of Stock -->
+      <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" style="animation-delay: 300ms; opacity: 0.7;">
+        <div class="image-container relative h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=500&h=600&fit=crop" 
+            alt="Celana Chino Slim Fit"
+            class="w-full h-full object-cover grayscale"
+          />
+          <!-- Out of Stock Badge -->
+          <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+            <span class="bg-gray-800 text-white text-sm font-bold px-6 py-2 rounded-full">
+              ❌ Out of Stock
+            </span>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+            Pants
+          </span>
+
+          <h3 class="text-lg font-bold text-gray-400 mt-1 mb-2 line-clamp-1">
+            Celana Chino Slim Fit
+          </h3>
+
+          <p class="text-sm text-gray-400 mb-3 line-clamp-2">
+            Celana chino slim fit, nyaman dan stylish untuk daily wear.
+          </p>
+
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-xl font-bold text-gray-400">Rp 199.000</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+              <span class="text-xs text-red-600 font-bold">Sold out</span>
+            </div>
+          </div>
+
+          <button 
+            disabled
+            class="w-full bg-gray-200 text-gray-400 py-3 px-4 rounded-xl font-semibold flex items-center justify-center gap-2 cursor-not-allowed"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Notify Me
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <div>
+        <p class="font-semibold" id="toast-title">Added to cart!</p>
+        <p class="text-sm opacity-90" id="toast-message">Product added successfully</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add to Cart Function
+    function addToCart(productId, productName, price) {
+      console.log('Adding to cart:', { productId, productName, price });
+      
+      // Show toast notification
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-title').textContent = '✅ Added to cart!';
+      document.getElementById('toast-message').textContent = `${productName} - Rp ${price.toLocaleString('id-ID')}`;
+      
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      // Hide after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Simulate loading animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
