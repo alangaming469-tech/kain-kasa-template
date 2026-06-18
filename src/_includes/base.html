@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ siteName }}</title>
+  <meta name="description" content="{{ description }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/" class="text-xl font-bold text-gray-900">{{ siteName }}</a>
+        <div class="space-x-6">
+          <a href="/" class="hover:text-indigo-600">Home</a>
+          <a href="/products/" class="hover:text-indigo-600">Produk</a>
+          <a href="/about/" class="hover:text-indigo-600">Tentang</a>
+          <a href="/contact/" class="hover:text-indigo-600">Kontak</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    {{ content }}
+  </main>
+
+  <footer class="bg-gray-900 text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-bold text-lg mb-2">{{ siteName }}</h3>
+          <p class="text-gray-400 text-sm">Local pride, quality first.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Quick Links</h4>
+          <ul class="space-y-1 text-sm text-gray-400">
+            <li><a href="/products/" class="hover:text-white">Produk</a></li>
+            <li><a href="/about/" class="hover:text-white">Tentang</a></li>
+            <li><a href="/contact/" class="hover:text-white">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Contact</h4>
+          <p class="text-gray-400 text-sm">WhatsApp: +62 xxx-xxxx-xxxx</p>
+          <p class="text-gray-400 text-sm">Email: hello@example.com</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        © 2026 {{ siteName }}. Made with ❤️ in Indonesia.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
